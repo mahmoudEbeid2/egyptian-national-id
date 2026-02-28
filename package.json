@@ -1,5 +1,5 @@
 {
-  "name": "egyptian-national-id",
+  "name": "egypt-natid",
   "version": "1.0.0",
   "description": "Egyptian National ID validation and analysis engine",
   "author": "Mahmoud Ebeid <https://github.com/mahmoudEbeid2>",
@@ -25,7 +25,7 @@
     "dist"
   ],
   "bin": {
-    "egyid": "dist/cli.js"
+    "egyid": "dist/cli/cli.js"
   },
   "scripts": {
     "build": "tsup",

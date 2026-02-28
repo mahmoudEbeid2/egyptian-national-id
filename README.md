@@ -2,7 +2,7 @@
   <h1>🇪🇬 Egyptian National ID 🇪🇬</h1>
   <p><strong>The Ultimate, Bulletproof Node.js/TypeScript Engine for Parsing, Validating, Generating, Filtering, and Analyzing Egyptian National IDs.</strong></p>
   
-  [![npm version](https://img.shields.io/npm/v/egyptian-national-id.svg?style=flat-square)](https://www.npmjs.org/package/egyptian-national-id)
+  [![npm version](https://img.shields.io/npm/v/egypt-natid.svg?style=flat-square)](https://www.npmjs.org/package/egypt-natid)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
 
@@ -10,7 +10,7 @@
 
 Welcome to the **gold standard** Node.js and TypeScript library for processing Egyptian National IDs. 
 
-Built with scalability, extreme edge-case handling, and Developer Experience (DX) in mind, `egyptian-national-id` is the definitive engine for modern Web and Backend applications whether you are engineering a robust Government Portal, a Fintech KYC system, an E-commerce platform, or a vast HR database.
+Built with scalability, extreme edge-case handling, and Developer Experience (DX) in mind, `egypt-natid` is the definitive engine for modern Web and Backend applications whether you are engineering a robust Government Portal, a Fintech KYC system, an E-commerce platform, or a vast HR database.
 
 ## ✨ Why Choose This Engine?
 
@@ -27,11 +27,11 @@ Built with scalability, extreme edge-case handling, and Developer Experience (DX
 Install via your favorite package manager:
 
 ```bash
-npm install egyptian-national-id
+npm install egypt-natid
 # or
-yarn add egyptian-national-id
+yarn add egypt-natid
 # or
-pnpm add egyptian-national-id
+pnpm add egypt-natid
 ```
 
 ---
@@ -53,7 +53,7 @@ pnpm add egyptian-national-id
 Need to know if an ID physically exists and passes structural and mathematical rules?
 
 ```javascript
-import { validate } from "egyptian-national-id";
+import { validate } from "egypt-natid";
 
 const isValid = validate("30201011234557");
 console.log(isValid); // false (Invalid check digit!)
@@ -66,7 +66,7 @@ console.log(isValid2); // true
 If your users input IDs containing spaces, dashes, or Arabic numerals (٠-٩), you can effortlessly clean the string before processing.
 
 ```javascript
-import { sanitize } from "egyptian-national-id";
+import { sanitize } from "egypt-natid";
 
 const dirtyId = " 301050-501755٩٧ ";
 const cleanId = sanitize(dirtyId);
@@ -78,7 +78,7 @@ console.log(cleanId); // "30105050175597"
 Extract all demographic information hidden inside the National ID securely.
 
 ```javascript
-import { parse } from "egyptian-national-id";
+import { parse } from "egypt-natid";
 
 const data = parse("30105050175597"); 
 /* 
@@ -110,7 +110,7 @@ If your database returns an array of thousands of IDs, the Engine module allows 
 The `filter` function is incredibly flexible and case-insensitive. You can pass raw arrays of strings, or arrays of Objects!
 
 ```javascript
-import { filter } from "egyptian-national-id";
+import { filter } from "egypt-natid";
 
 const staffIds = ["30105050175597", "29912010112341", "invalid_id_here"];
 
@@ -166,7 +166,7 @@ Sometimes you want to attach the extracted data directly to your Original Datase
 It safely ignores items with invalid IDs instead of crashing!
 
 ```javascript
-import { mapWithAnalysis } from "egyptian-national-id";
+import { mapWithAnalysis } from "egypt-natid";
 
 const enrichedData = mapWithAnalysis(database, "nid");
 /* 
@@ -184,7 +184,7 @@ Returns a combined Object array:
 Get instant demographics from an array of IDs. It safely skips invalid IDs without crashing.
 
 ```javascript
-import { stats } from "egyptian-national-id";
+import { stats } from "egypt-natid";
 
 const report = stats(staffIds);
 /*
@@ -216,7 +216,7 @@ import {
     isInsideEgypt, 
     isFromGovernorate, 
     isFromRegion 
-} from "egyptian-national-id";
+} from "egypt-natid";
 
 const id = "30105050175597";
 
@@ -233,7 +233,7 @@ isFromRegion(id, "Cairo"); // true
 If you are unit testing your application, you can programmatically generate 100% mathematically valid National IDs!
 
 ```javascript
-import { generateId } from "egyptian-national-id";
+import { generateId } from "egypt-natid";
 
 const randomId = generateId(); // Totally random valid ID
 
@@ -253,7 +253,7 @@ console.log(specificId); // 299XXXX02XXXXX (Valid modulo 11 Checksum)
 Building a React, Vue, or Angular Frontend? We expose the strict validation tools.
 
 ```javascript
-import { NationalIdRegex, NationalIdSchemaMap } from "egyptian-national-id";
+import { NationalIdRegex, NationalIdSchemaMap } from "egypt-natid";
 
 // 1. Raw Regex Usage
 const isValid = NationalIdRegex.test("30105050175597");
