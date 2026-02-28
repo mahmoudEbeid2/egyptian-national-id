@@ -1,6 +1,6 @@
 {
   "name": "egypt-natid",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Egyptian National ID validation and analysis engine",
   "author": "Mahmoud Ebeid <https://github.com/mahmoudEbeid2>",
   "repository": {

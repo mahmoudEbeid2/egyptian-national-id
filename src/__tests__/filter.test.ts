@@ -41,4 +41,27 @@ describe("filter()", () => {
     const result = filter(items as any, { gender: "Female" });
     expect(result[0]).toBe(analysis2);
   });
+
+  it("should support string values for numeric criteria", () => {
+    const database = [
+      { name: "Ahmed", age: 34, gov: 12 },
+      { name: "Mona", age: 29, gov: 1 }
+    ];
+    const ids = [
+      generateId({ gender: "Male", birthYear: 1990, governorateCode: 12 }),
+      generateId({ gender: "Female", birthYear: 1995, governorateCode: 1 })
+    ];
+    const data = database.map((d, i) => ({ ...d, nid: ids[i] }));
+
+    // Test with strings for birthYear, age, and governorateCode
+    const result = filter(data, { 
+      key: "nid", 
+      birthYear: "1990", 
+      ageFrom: "30", 
+      governorateCode: "12" 
+    });
+    
+    expect(result).toHaveLength(1);
+    expect(result[0].name).toBe("Ahmed");
+  });
 });

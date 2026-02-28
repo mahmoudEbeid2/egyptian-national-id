@@ -35,33 +35,34 @@ function matchCriteria(
   }
 
   if (
-    criteria.governorateCode &&
-    analysis.governorate?.code !== criteria.governorateCode
+    criteria.governorateCode !== undefined &&
+    analysis.governorate?.code !== Number(criteria.governorateCode)
   )
     return false;
 
   if (criteria.governorates && criteria.governorates.length > 0) {
-    if (!analysis.governorate || !criteria.governorates.includes(analysis.governorate.code)) {
+    const govCodes = criteria.governorates.map(Number);
+    if (!analysis.governorate || !govCodes.includes(analysis.governorate.code)) {
       return false;
     }
   }
 
   if (
     criteria.birthYear !== undefined &&
-    analysis.birthYear !== criteria.birthYear
+    analysis.birthYear !== Number(criteria.birthYear)
   )
     return false;
 
-  if (criteria.birthYearFrom && analysis.birthYear < criteria.birthYearFrom)
+  if (criteria.birthYearFrom !== undefined && analysis.birthYear < Number(criteria.birthYearFrom))
     return false;
 
-  if (criteria.birthYearTo && analysis.birthYear > criteria.birthYearTo)
+  if (criteria.birthYearTo !== undefined && analysis.birthYear > Number(criteria.birthYearTo))
     return false;
 
-  if (criteria.ageFrom !== undefined && analysis.age < criteria.ageFrom)
+  if (criteria.ageFrom !== undefined && analysis.age < Number(criteria.ageFrom))
     return false;
 
-  if (criteria.ageTo !== undefined && analysis.age > criteria.ageTo)
+  if (criteria.ageTo !== undefined && analysis.age > Number(criteria.ageTo))
     return false;
 
   if (criteria.birthDateFrom && analysis.birthDate < criteria.birthDateFrom)

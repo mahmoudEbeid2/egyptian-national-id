@@ -6,14 +6,14 @@ export interface NationalIdFilter {
   gender?: Gender;
   region?: EconomicRegion;
   regions?: EconomicRegion[];
-  governorateCode?: number;
-  governorates?: number[];
-  birthYear?: number;
-  birthYearFrom?: number;
-  birthYearTo?: number;
+  governorateCode?: number | string;
+  governorates?: (number | string)[];
+  birthYear?: number | string;
+  birthYearFrom?: number | string;
+  birthYearTo?: number | string;
   birthDateFrom?: Date;
   birthDateTo?: Date;
-  ageFrom?: number;
-  ageTo?: number;
+  ageFrom?: number | string;
+  ageTo?: number | string;
   insideEgypt?: boolean;
 }
