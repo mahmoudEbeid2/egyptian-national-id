@@ -1,12 +1,26 @@
 import { parse } from "../core";
 import { NationalIdAnalysis } from "../domain";
 
-export function stats(ids: string[]) {
+export function stats<T = any>(data: T[], options?: { key?: keyof T }) {
   const analyses: NationalIdAnalysis[] = [];
   
-  for (const id of ids) {
+  for (const item of data) {
+    if (!item) continue;
+
     try {
-      analyses.push(parse(id));
+      let analysis: NationalIdAnalysis;
+
+      if ((item as any).nationalId && (item as any).gender && (item as any).birthDate) {
+        analysis = item as unknown as NationalIdAnalysis;
+      } else if ((item as any).analysis && (item as any).analysis.nationalId) {
+        analysis = (item as any).analysis as NationalIdAnalysis;
+      } else {
+        const idValue = options?.key ? item[options.key] : item;
+        if (!idValue) continue;
+        analysis = parse(String(idValue));
+      }
+
+      analyses.push(analysis);
     } catch {
       
     }
@@ -22,6 +36,10 @@ export function stats(ids: string[]) {
       outsideEgypt: 0,
       averageAge: 0,
       governoratesDistribution: {},
+      minAge: 0,
+      maxAge: 0,
+      minYear: 0,
+      maxYear: 0,
     };
   }
 
