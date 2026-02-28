@@ -1,7 +1,7 @@
 import { parse } from "../core/parse";
 import { EconomicRegion } from "../domain/Region";
 
-export function isMale(nationalId: string): boolean {
+export function isMale(nationalId: string | number): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.gender === "Male";
@@ -10,7 +10,7 @@ export function isMale(nationalId: string): boolean {
   }
 }
 
-export function isFemale(nationalId: string): boolean {
+export function isFemale(nationalId: string | number): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.gender === "Female";
@@ -19,7 +19,7 @@ export function isFemale(nationalId: string): boolean {
   }
 }
 
-export function isAdult(nationalId: string): boolean {
+export function isAdult(nationalId: string | number): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.isAdult;
@@ -28,7 +28,7 @@ export function isAdult(nationalId: string): boolean {
   }
 }
 
-export function isInsideEgypt(nationalId: string): boolean {
+export function isInsideEgypt(nationalId: string | number): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.insideEgypt;
@@ -37,7 +37,7 @@ export function isInsideEgypt(nationalId: string): boolean {
   }
 }
 
-export function isFromGovernorate(nationalId: string, govCode: number): boolean {
+export function isFromGovernorate(nationalId: string | number, govCode: number): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.governorate?.code === govCode;
@@ -46,7 +46,7 @@ export function isFromGovernorate(nationalId: string, govCode: number): boolean 
   }
 }
 
-export function isFromRegion(nationalId: string, region: EconomicRegion): boolean {
+export function isFromRegion(nationalId: string | number, region: EconomicRegion): boolean {
   try {
     const analysis = parse(nationalId);
     return analysis.region === region;

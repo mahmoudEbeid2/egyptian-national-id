@@ -5,15 +5,16 @@ import { extractGovernorate } from "./extractGovernorate";
 import { calculateAge } from "./calculateAge";
 import { NationalIdAnalysis } from "../domain";
 
-export function parse(nationalId: string): NationalIdAnalysis {
-  if (!validate(nationalId)) {
+export function parse(nationalId: string | number): NationalIdAnalysis {
+  const idStr = String(nationalId);
+  if (!validate(idStr)) {
     throw new Error("Invalid National ID format");
   }
 
 
-  const birthDate = extractBirthDate(nationalId);
-  const gender = extractGender(nationalId);
-  const governorate = extractGovernorate(nationalId);
+  const birthDate = extractBirthDate(idStr);
+  const gender = extractGender(idStr);
+  const governorate = extractGovernorate(idStr);
   const age = calculateAge(birthDate);
 
   const region = governorate?.region ?? "Foreign";
@@ -22,7 +23,7 @@ export function parse(nationalId: string): NationalIdAnalysis {
   const isAdult = age >= 18;
 
   return {
-    nationalId,
+    nationalId: idStr,
     birthDate,
     birthYear: birthDate.getFullYear(),
     birthMonth: birthDate.getMonth() + 1,

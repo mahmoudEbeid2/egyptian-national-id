@@ -47,4 +47,11 @@ describe("Core Utils", () => {
     expect(isFromRegion(realMaleId, "Delta")).toBe(true);
     expect(isFromRegion(realMaleId, "Cairo")).toBe(false);
   });
+
+  it("should support number input", () => {
+    const validIdStr = generateId({ gender: "Male" });
+    const numId = Number(validIdStr);
+    expect(isMale(numId)).toBe(true);
+    expect(isInsideEgypt(numId)).toBe(true);
+  });
 });
