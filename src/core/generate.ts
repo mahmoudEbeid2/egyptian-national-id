@@ -29,13 +29,16 @@ export function generateId(options?: GenerateOptions): string {
   const isMale = options?.gender?.toLowerCase() === "male";
   const isFemale = options?.gender?.toLowerCase() === "female";
   
-  
-  let serialGender = Math.floor(Math.random() * 9) + 1;
-  if (isMale && serialGender % 2 === 0) serialGender += 1;
-  if (isFemale && serialGender % 2 !== 0) serialGender -= 1;
-  
-  if (serialGender > 9) serialGender = 9;
-  if (serialGender < 1) serialGender = 1;
+  let serialGender;
+  if (isMale) {
+    const maleDigits = [1, 3, 5, 7, 9];
+    serialGender = maleDigits[Math.floor(Math.random() * maleDigits.length)];
+  } else if (isFemale) {
+    const femaleDigits = [0, 2, 4, 6, 8];
+    serialGender = femaleDigits[Math.floor(Math.random() * femaleDigits.length)];
+  } else {
+    serialGender = Math.floor(Math.random() * 10);
+  }
 
   const baseId = `${century}${yearStr}${monthStr}${dayStr}${govStr}${randomPart1}${serialGender}`;
 
