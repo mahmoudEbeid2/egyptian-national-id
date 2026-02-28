@@ -1,0 +1,18 @@
+export type EconomicRegion =
+  | "Cairo"
+  | "Alexandria"
+  | "Delta"
+  | "Canal"
+  | "UpperEgyptNorth"
+  | "UpperEgyptMiddle"
+  | "UpperEgyptSouth"
+  | "Foreign"
+  | "cairo"
+  | "alexandria"
+  | "delta"
+  | "canal"
+  | "upperegyptnorth"
+  | "upperegyptmiddle"
+  | "upperegyptsouth"
+  | "foreign"
+  | string;

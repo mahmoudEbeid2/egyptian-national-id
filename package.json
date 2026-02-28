@@ -1,0 +1,52 @@
+{
+  "name": "egyptian-national-id",
+  "version": "1.0.0",
+  "description": "Egyptian National ID validation and analysis engine",
+  "author": "Mahmoud Ebeid <https://github.com/mahmoudEbeid2>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmoudEbeid2/egyptian-national-id.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahmoudEbeid2/egyptian-national-id/issues"
+  },
+  "homepage": "https://github.com/mahmoudEbeid2/egyptian-national-id#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "egyid": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "egypt",
+    "national-id",
+    "egyptian-id",
+    "validation",
+    "parser"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
