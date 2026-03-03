@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>🇪🇬 Egyptian National ID 🇪🇬</h1>
-  <p><strong>The Ultimate, Bulletproof Node.js/TypeScript Engine for Parsing, Validating, Generating, Filtering, and Analyzing Egyptian National IDs.</strong></p>
+  <h1>🇪🇬 Egyptian National ID Validator & Parser 🇪🇬</h1>
+  <p><strong>A Highly Optimized, Type-Safe Node.js/TypeScript Library for Parsing, Validating, Generating, Filtering, and Analyzing Egyptian National IDs.</strong></p>
   
   [![npm version](https://img.shields.io/npm/v/egypt-natid.svg?style=flat-square)](https://www.npmjs.org/package/egypt-natid)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,17 +8,32 @@
 
 <br />
 
-Welcome to the **gold standard** Node.js and TypeScript library for processing Egyptian National IDs. 
+Welcome to the **comprehensive** Node.js and TypeScript library for processing Egyptian National IDs. 
 
-Built with scalability, extreme edge-case handling, and Developer Experience (DX) in mind, `egypt-natid` is the definitive engine for modern Web and Backend applications whether you are engineering a robust Government Portal, a Fintech KYC system, an E-commerce platform, or a vast HR database.
+Built with scalability, extreme edge-case handling, and Developer Experience (DX) in mind, `egypt-natid` is a reliable processing layer for modern Web and Backend applications whether you are building a Fintech KYC system, an E-commerce platform, a Healthcare app, or a vast HR database.
 
-## ✨ Why Choose This Engine?
+## ✨ Why Choose This Core?
 
-- 🛡️ **Military-Grade Validation**: Goes far beyond regex. It performs deep mathematical validations including string length constraints, positive integer verification, absolute date-of-birth existence, rigorous century logics, and finalizes with the highly sophisticated **Modulo 11 Checksum Algorithm** to ensure the ID was genuinely issued by the Civil Registry.
+- ⚡ **Extreme Performance**: Highly optimized algorithms capable of processing and validating 100,000+ IDs in milliseconds.
+- 🛡️ **Strict Structural Validation**: Goes far beyond regex. It performs deep mathematical validations including string length constraints, positive integer verification, absolute date-of-birth existence, rigorous century logics, and finalizes with the sophisticated **Modulo 11 Checksum Algorithm**. This ensures the ID is structurally valid according to the publicly known Egyptian National ID format and mathematical rules.
 - 🎛️ **Advanced Recursive Filtering**: Instantly sift through thousands of users! Search, map, and filter massive Arrays or Objects by age, exact birth dates, governorates, regions, or gender using our blazing fast case-insensitive filter engine.
 - 🚀 **100% Type-Safe (TypeScript)**: Built from the ground up in strict TypeScript to provide beautiful exact autocomplete, extensive types (`Governorate`, `NationalIdAnalysis`), and absolute peace of mind.
 - 🛠️ **All-in-One Toolkit**: Stop relying on 10 different snippets! Enjoy built-in Parsers, Generators (for your E2E tests), Bulk Statistical Analyzers, flexible Data Extractors, and even a global CLI Interface!
 - 🎨 **Drop-in Form Schemas**: Ship faster! We expose ready-to-use Regex patterns and structured error maps that seamlessly plug directly into `zod`, `yup`, or `React Hook Form`.
+
+---
+
+## 🆚 Why Not Just Use Regex?
+
+If you rely solely on Regular Expressions to validate Egyptian National IDs, you are leaving your database vulnerable to fake, yet structurally plausible numbers. 
+
+**Regex CANNOT:**
+❌ Verify the **Modulo 11 Checksum** (The mathematical secret that proves the ID digits are coherent).
+❌ Validate that the **Date of Birth actually exists** (e.g., preventing February 30th).
+❌ Accurately calculate the user's **Age** or extract demographic data.
+❌ Perform **Bulk Filtering** or **Statistical Aggregation**.
+
+`egypt-natid` is not a simple regex utility; it is a full **Data-Processing Framework** built specifically for the Egyptian National ID.
 
 ---
 
@@ -39,7 +54,7 @@ pnpm add egypt-natid
 ## 📖 Table of Contents
 
 1. [Basic Usage](#1-basic-usage-parsing--validating)
-2. [Data Processing (Engine)](#2-data-processing-engine)
+2. [Data Processing (Core)](#2-data-processing-core)
 3. [Helper Utilities](#3-helper-utilities)
 4. [Generating Dummy IDs](#4-generating-dummy-ids-for-testing)
 5. [Form Validation (Regex)](#5-form-validation-regex)
@@ -50,7 +65,7 @@ pnpm add egypt-natid
 ## 1. Basic Usage (Parsing & Validating)
 
 ### 🧐 Validating an ID
-Need to know if an ID physically exists and passes structural and mathematical rules?
+Need to know if an ID is structurally valid and passes mathematical rules?
 
 ```javascript
 import { validate } from "egypt-natid";
@@ -101,9 +116,9 @@ Returns:
 
 ---
 
-## 2. Data Processing (Engine)
+## 2. Data Processing (Core)
 
-If your database returns an array of thousands of IDs, the Engine module allows you to filter, map, and analyze them blazingly fast.
+If your database returns an array of thousands of IDs, the processing module allows you to filter, map, and analyze them blazingly fast.
 
 ### 🔍 Filtering
 
@@ -232,6 +247,8 @@ isFromRegion(id, "Cairo"); // true
 
 If you are unit testing your application, you can programmatically generate 100% mathematically valid National IDs!
 
+> ⚠️ **Disclaimer:** Generated IDs are for testing purposes only and do not correspond to real individuals.
+
 ```javascript
 import { generateId } from "egypt-natid";
 
@@ -245,6 +262,10 @@ const specificId = generateId({
 
 console.log(specificId); // 299XXXX02XXXXX (Valid modulo 11 Checksum)
 ```
+
+> ⚖️ **Legal Notice**
+> 
+> This library validates and parses Egyptian National IDs based solely on publicly known structural rules and mathematical algorithms. It does **NOT** verify identities against any governmental authority or official database. The authors are **not** affiliated with any Egyptian government entity.
 
 ---
 

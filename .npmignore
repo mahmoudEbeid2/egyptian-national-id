@@ -4,3 +4,8 @@ src/**/*.spec.ts
 tsconfig.json
 tsup.config.ts
 vitest.config.ts
+
+# Documentation & Plans
+ROADMAP.md
+SHOWCASE.md
+features_explanation/
